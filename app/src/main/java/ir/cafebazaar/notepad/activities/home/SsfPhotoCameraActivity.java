@@ -71,7 +71,7 @@ public class SsfPhotoCameraActivity extends AppCompatActivity implements View.On
         imageView = (ImageView) this.findViewById(R.id.imageView);
 
         mPhotoCameraButton = this.findViewById(R.id.photo_camera_ssf);
-
+        mPhotoCameraButton.setOnClickListener(this);
     }
 
 
@@ -94,6 +94,8 @@ public class SsfPhotoCameraActivity extends AppCompatActivity implements View.On
 //        Intent intent = new Intent(Intent.ACTION_PICK);  //跳转到 ACTION_IMAGE_CAPTURE
 //        intent.setType("image/*");
 //        startActivityForResult(intent, 100);
+        Log.e(TAG, "toPictureCamera");
+
         EasyPhotos.createAlbum(this, true, GlideEngine.getInstance())
                 .setFileProviderAuthority("com.huantansheng.easyphotos.demo.fileprovider")
                 .setCount(9)
@@ -112,7 +114,6 @@ public class SsfPhotoCameraActivity extends AppCompatActivity implements View.On
                         } catch (FileNotFoundException e) {
                             Log.e("Exception", e.getMessage(), e);
                         }
-
                     }
                 });
         Log.i(TAG, "跳转相册摄像机成功");

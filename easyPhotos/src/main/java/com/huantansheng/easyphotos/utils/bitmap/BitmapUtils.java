@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextPaint;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -267,6 +268,7 @@ public class BitmapUtils {
             });
             return;
         }
+        Log.e("insertUri ", insertUri.toString() );
         OutputStream os;
         try {
             os = resolver.openOutputStream(insertUri);
@@ -279,6 +281,7 @@ public class BitmapUtils {
                 @Override
                 public void run() {
                     String uriPath = UriUtils.getPathByUri(act, insertUri);
+                    Log.e("uriPath ", uriPath );
                     if (null == uriPath) {
                         callBack.onCreateDirFailed();
                     }else {

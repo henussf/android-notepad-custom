@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import androidx.fragment.app.FragmentManager;
+
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -154,7 +156,7 @@ public class StickerModel {
         } else {
             saveBitmap = cropBitmap;
         }
-
+        Log.e("saveBitmap ", "w " + saveBitmap.getWidth() + " h " + saveBitmap.getHeight());
         EasyPhotos.saveBitmapToDir(act, dirPath, namePrefix, saveBitmap, notifyMedia, callBack);
 
     }
