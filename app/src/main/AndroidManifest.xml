@@ -1,0 +1,98 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ir.cafebazaar.notepad">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE"/>
+    <!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18" />-->
+<!--    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!--        android:requestLegacyExternalStorage="true"-->
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage = "true"
+        tools:replace="android:supportsRtl">
+
+<!--        <provider-->
+<!--            android:authorities="ir.cafebazaar.notepad.fileprovider"-->
+<!--            android:name="android.support.v4.content.FileProvider"-->
+<!--            android:grantUriPermissions="true"-->
+<!--            android:exported="false">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/filepaths"/>-->
+<!--        </provider>-->
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="ir.cafebazaar.notepad.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
+
+        <activity
+            android:name=".activities.home.HomeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="*/*" />
+                <data android:pathPattern=".*\\.nbu" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.editfolders.EditFoldersActivity"
+            android:label="Edit Folders"></activity>
+        <activity
+            android:name=".activities.note.NoteActivity"
+            android:label="Note Activity"
+            android:theme="@style/AppTheme.WhiteBackground"
+            android:windowSoftInputMode="adjustResize|stateUnchanged"></activity>
+        <activity
+            android:name=".activities.DebugActivity"
+            android:label="Debug Activity"></activity>
+        <activity
+            android:name=".activities.note.DrawingActivity"
+            android:label="Drawing Activity"
+            android:theme="@style/AppTheme.WhiteBackground"></activity>
+        <activity
+            android:name=".activities.addtofolders.AddToFoldersActivity"
+            android:label="Edit Folders"></activity>
+
+        <activity
+            android:name=".activities.home.LoginActivity"
+            android:label="登录"></activity>
+
+        <activity
+            android:name=".activities.home.SsfPhotoCameraActivity"
+            android:label="相册"></activity>
+
+
+
+    </application>
+
+</manifest>

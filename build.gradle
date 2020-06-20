@@ -1,0 +1,85 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+//  repositories {
+//    jcenter()
+//    google()
+//  }
+//    repositories {
+//        mavenCentral()
+//        jcenter()
+////        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+//        maven{ url "http://maven.aliyun.com/nexus/content/groups/public/"}
+//        maven { url "https://jitpack.io" }//这就是添加的
+//
+//        maven {
+//            url 'https://dl.bintray.com/hpdx/maven/'
+//        }
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+//    }
+
+    repositories {
+//        maven{ url "http://maven.aliyun.com/nexus/content/groups/public/"}
+//        maven{ url "http://maven.aliyun.com/nexus/content/groups/public/"}
+//        maven { url'https://maven.aliyun.com/repository/public/' }
+//        maven { url'https://maven.aliyun.com/repository/google/' }
+//        maven { url'https://maven.aliyun.com/repository/jcenter/' }
+//        maven { url'https://maven.aliyun.com/repository/central/' }
+//        google()
+//        maven { url "https://jitpack.io" }
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        google()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+//        maven{ url "http://maven.aliyun.com/nexus/content/groups/public/"}
+//        maven { url'https://maven.aliyun.com/repository/public/' }
+//        maven { url'https://maven.aliyun.com/repository/google/' }
+//        maven { url'https://maven.aliyun.com/repository/jcenter/' }
+//        maven { url'https://maven.aliyun.com/repository/central/' }
+//        google()
+//        maven { url "https://jitpack.io" }
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        google()
+    }
+
+//  repositories {
+//    jcenter()
+//    maven { url "https://www.jitpack.io" }
+//    google()
+//  }
+//    repositories {
+//        mavenCentral()
+//        maven{ url "http://maven.aliyun.com/nexus/content/groups/public/"}
+//        google()
+//        jcenter()
+//        maven { url "https://jitpack.io" }//这就是添加的
+//        maven {
+//            url 'https://dl.bintray.com/hpdx/maven/'
+//        }
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+//    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
